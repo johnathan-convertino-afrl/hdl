@@ -173,7 +173,7 @@ proc create_phy_reset_control {tx num_of_lanes sysclk_frequency} {
   }
 }
 
-proc create_lane_pll {id pllclk_frequency refclk_frequency num_lanes bonding_clocks_en} {
+proc create_lane_pll {id tx_or_rx_n pllclk_frequency refclk_frequency num_lanes bonding_clocks_en} {
 
   global version
 
@@ -463,6 +463,8 @@ proc jesd204_compose {} {
   } else {
     set_interface_property link_clk EXPORT_OF link_clock.out_clk
   }
+
+  set phy_reset_intfs_s10 {analogreset_stat digitalreset_stat}
 
   if {$tx_or_rx_n} {
     set tx_rx "tx"
