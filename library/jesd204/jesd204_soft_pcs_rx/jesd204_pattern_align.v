@@ -95,6 +95,9 @@ always @(*) begin
     end
   end
 
+end
+
+always @(posedge clk) begin
   aligned_data_stage2 <= aligned_data_stage1[align[1:0]+:DATA_PATH_WIDTH*10];
 end
 
